@@ -1,0 +1,21 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.MukundaKatta/range",
+  "description": "MCP server: generate numeric ranges (Python-style: start, stop, step).",
+  "version": "0.1.0",
+  "repository": {
+    "url": "https://github.com/MukundaKatta/range-mcp",
+    "source": "github"
+  },
+  "websiteUrl": "https://github.com/MukundaKatta/range-mcp",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@mukundakatta/range-mcp",
+      "version": "0.1.0",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}
