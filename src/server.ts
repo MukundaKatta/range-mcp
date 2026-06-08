@@ -16,7 +16,19 @@ import {
 
 const VERSION = '0.1.0';
 
+function assertInteger(name: string, value: number): void {
+  if (typeof value !== 'number' || !Number.isFinite(value)) {
+    throw new Error(`${name} must be a finite number`);
+  }
+  if (!Number.isInteger(value)) {
+    throw new Error(`${name} must be an integer`);
+  }
+}
+
 export function range(start: number, stop?: number, step: number = 1): number[] {
+  assertInteger('start', start);
+  if (stop !== undefined) assertInteger('stop', stop);
+  assertInteger('step', step);
   let lo = start;
   let hi: number;
   if (stop === undefined) {
@@ -44,6 +56,13 @@ export function range(start: number, stop?: number, step: number = 1): number[] 
 }
 
 export function linspace(start: number, stop: number, num: number = 50): number[] {
+  if (typeof start !== 'number' || !Number.isFinite(start)) {
+    throw new Error('start must be a finite number');
+  }
+  if (typeof stop !== 'number' || !Number.isFinite(stop)) {
+    throw new Error('stop must be a finite number');
+  }
+  if (!Number.isInteger(num)) throw new Error('num must be an integer');
   if (num < 0) throw new Error('num must be >= 0');
   if (num > 100_000) throw new Error('num must be <= 100,000');
   if (num === 0) return [];
